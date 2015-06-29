@@ -1,0 +1,44 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+                     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="100%" height="100%" version="1.1" 
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     onclick="doSomething(evt)">
+
+  
+  <script language="javascript" type="text/javascript">
+  <![CDATA[
+
+    function doSomething(evt) 
+    {
+      var myRect = evt.target;
+      
+      // 判断 id 是不是红色矩形
+      if (myRect.id != "redRect") 
+      {
+        alert("Please click on the rectangle\n请点击矩形");
+        // 重新加载页面
+        document.location.reload();
+      }
+  
+      var myWidth = myRect.getAttribute("width");
+      
+      if (myWidth == 50)
+        myRect.setAttribute("width", 100);
+      else
+        myRect.setAttribute("width", 50);
+    }
+   
+  ]]>
+  </script>
+
+  <!-- Outline the SVG viewport. -->
+  <rect x="0" y="0" width="100%" height="100%" 
+        style="fill: none; stroke: black; stroke-width: 5px;" /> 
+  
+  <rect id="redRect" x="100" y="100" width="50" height="50" 
+        fill="red" stroke="blue" />
+    
+</svg>

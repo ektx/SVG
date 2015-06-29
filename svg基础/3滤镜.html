@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>SVG 滤镜</title>
+</head>
+<body>
+	<?xml version="1.0" standalone="no" ?>
+
+	<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//" "http://www.w3.org/Graphics/Svg/1.1/DTD/svg11.dtd">
+
+	<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+		<defs>
+			<!-- <filter> 标签的 id 属性可为滤镜定义一个唯一的名称（同一滤镜可被文档中的多个元素使用） -->
+			<filter id="Gaussian_blur">
+				<!-- 滤镜效果是通过 <feGaussianBlur> 标签进行定义的。fe 后缀可用于所有的滤镜 -->
+				<!-- in="SourceGraphic" 这个部分定义了由整个图像创建效果 -->
+				<!-- <feGaussianBlur> 标签的 stdDeviation 属性可定义模糊的程度 -->
+				<feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+			</filter>
+		</defs>
+	
+		<!-- filter:url 属性用来把元素链接到滤镜。当链接滤镜 id 时，必须使用 # 字符 -->
+		<circle cx="200" cy="100" r="80" stroke="black" stroke-width="2" fill="red" style="filter:url(#Gaussian_blur)"/>
+
+	</svg>
+</body>
+</html>

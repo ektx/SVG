@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<h1>SVG 动画控制</h1>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 17.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<p>自动循环动画:</p>
+<svg version="1.1" id="&#x56FE;&#x5C42;_1" x="0px"
+	 y="0px" width="200px" height="200px" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+	<polyline style="fill:none;stroke:#0f0;stroke-miterlimit:10; stroke-width: 2px;" points="29.186,107.663 76.279,150.105 177.151,45 "/>
+	<animate attributeName="stroke-dasharray" begin="0s" dur="1s" values="0,230; 230,0" repeatCount="indefinite"></animate>
+
+</svg>
+<p>点击启动动画:</p>
+<svg version="1.1" id="go" x="0px"
+	 y="0px" width="200px" height="200px" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+	<polyline style="fill:none; stroke:#0f0;stroke-miterlimit:10; stroke-width: 2px;" points="29.186,107.663 76.279,150.105 177.151,45 "/>
+	<animate attributeName="stroke-dasharray" begin="go.click" dur="1s" values="0,230; 230,0"></animate>
+</svg>
+
+<p>点击延迟 2s 启动动画:</p>
+<svg version="1.1" id="go2" x="0px"
+	 y="0px" width="200px" height="200px" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+	<polyline style="fill:none; stroke:#0f0;stroke-miterlimit:10; stroke-width: 2px;" points="29.186,107.663 76.279,150.105 177.151,45 "/>
+	<animate attributeName="stroke-dasharray" begin="go2.click + 2s" dur="1s" values="0,230; 230,0"></animate>
+</svg>
+
+<p>键盘事件控制动画[FireFox]:</p>
+<p>在浏览器中按 s 开始动画.[火狐下可用]</p>
+<svg version="1.1" id="go2" x="0px"
+	 y="0px" width="200px" height="200px" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+	<polyline style="fill:none; stroke:#0f0;stroke-miterlimit:10; stroke-width: 2px;" points="29.186,107.663 76.279,150.105 177.151,45 "/>
+	<animate attributeName="stroke-dasharray" begin="accessKey(s)" dur="1s" values="0,230; 230,0"></animate>
+</svg>
+
+<p>js 事件调用动画</p>
+<svg version="1.1" id="go3" x="0px"
+	 y="0px" width="200px" height="200px" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+	<polyline style="fill:none; stroke:#0f0;stroke-miterlimit:10; stroke-width: 2px;" points="29.186,107.663 76.279,150.105 177.151,45 "/>
+	<animate id="go3-ani" attributeName="stroke-dasharray" begin="indefinite" dur="1s" values="0,230; 230,0"></animate>
+</svg>
+<script type="text/javascript">
+var animate = document.getElementById('go3-ani');
+if (animate) {
+	document.getElementById('go3').onclick = function() {
+		animate.beginElement();
+	}
+}
+</script>
+
+<p>&lt;a> 联接调用动画</p>
+<svg version="1.1" id="go4" x="0px"
+	 y="0px" width="200px" height="200px" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+	<polyline style="fill:none; stroke:#0f0;stroke-miterlimit:10; stroke-width: 2px;" points="29.186,107.663 76.279,150.105 177.151,45 "/>
+	<animate id="go4-ani" attributeName="stroke-dasharray" begin="indefinite" dur="1s" values="0,230; 230,0"></animate>
+	<a xlink:href="#go4-ani">
+	<text x="140" y="190" fill="#f90" font-size="14">运行动画</text>
+	</a>
+</svg>
+</body>
+</html>

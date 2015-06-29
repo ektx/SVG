@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>Manipulating the Radius of an SVG Circle</title>
+  <script language="javascript" type="text/javascript">
+  <![CDATA[  
+    var red_circle;  // The object representing circle.
+  var r;       // The variable representing circle's radius.
+    
+    window.onload = function() {
+      red_circle = document.getElementById('redCircle');
+      r = red_circle.getAttribute("r");
+    }
+    
+    function grow() {
+      r = 2*r;
+      red_circle.setAttribute("r",r);
+    }
+    
+    function shrink() {
+      r = r/2;
+      red_circle.setAttribute("r",r);
+    }
+  ]]>
+  </script>
+</head>
+
+<body>
+  <svg width="200px" height="200px" version="1.1" 
+       xmlns="http://www.w3.org/2000/svg"
+       xmlns:xlink="http://www.w3.org/1999/xlink">
+    <circle id="redCircle" cx="100" cy="100" r="50" 
+            style="stroke: black; fill: red;" 
+            onmouseover="grow()" onmouseout="shrink()"/>
+    <rect x="0" y="0" width="100%" height="100%" style="fill: none; stroke: black;"/>
+  </svg>
+</body>
+
+</html>

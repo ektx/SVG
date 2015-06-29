@@ -1,0 +1,83 @@
+<style type="text/css">
+	.circle-L {
+		fill:none;
+		stroke: #333;
+		stroke-width:3;
+		/*设置转角顶点样式为圆形*/
+		stroke-linejoin: round;
+		stroke-miterlimit:20;
+		-webkit-animation: circle 7s infinite;
+	}
+	@-webkit-keyframes circle {
+		0% {
+			stroke-dasharray:0 790;
+		}
+		100% {
+			stroke-dasharray:790 0;
+		}
+	}
+	.letter-L {
+		fill:none;
+		stroke: #333;
+		stroke-width:3;
+		/*设置转角顶点样式为圆形*/
+		stroke-linejoin: round;
+		stroke-miterlimit:20;
+		/*-webkit-animation: letter-z 7s infinite;*/
+		/*-moz-animation: letter-z 7s infinite;*/
+	}
+	@-webkit-keyframes letter-z {
+		0% {
+			stroke-dasharray:0 800;
+		}
+		50% {
+			stroke-dasharray:190 0;
+		}
+	}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+  lineDraw();
+  //repeat for demo purposes
+  setInterval(lineDraw, 7000);
+  
+};
+function lineDraw(){
+var path = document.querySelector('polyline');
+// var length = path.getTotalLength();
+var length = 600;
+// Clear any previous transition
+path.style.transition = path.style.WebkitTransition =
+  'none';
+
+// Set up the starting positions
+path.style.strokeDasharray = length + ' ' + length; 
+path.style.strokeDashoffset = length;
+// Trigger a layout so styles are calculated & the browser 
+// picks up the starting position before animating
+path.getBoundingClientRect();
+// Define our transition
+path.style.transition = path.style.WebkitTransition =
+  'stroke-dashoffset 7s ease-in-out';
+// Go!
+path.style.strokeDashoffset = '0';
+  //0 is the image fully animated, 988.01 is the starting point.
+};
+</script>
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="230px" height="230px" viewBox="0 0 230 230" enable-background="new 0 0 230 230" xml:space="preserve">
+<circle class="circle-L" cx="117.351" cy="111.769" r="90"/>
+<g>
+	<polyline class="letter-L" points="82.167,58.167 82.167,162.833 159.5,162.833 "
+      stroke="#f00" 
+      stroke-width="2" 
+      fill="none" 
+      stroke-dasharray="988.01 988.01"
+      stroke-dashoffset="0"	/>
+</g>
+</svg>

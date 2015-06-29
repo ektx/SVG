@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>SVG Blur</title>
+		<style>
+		body {
+			background: url('donmi.jpg') no-repeat 50% 50% fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			background-size: cover;
+			font: 14px/1.4 Hevetica, Arial, sans-serif;
+		}
+		.translucent {
+			width: 200px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			display: block;
+			line-height: 60px;
+			margin: -30px -100px;
+			-webkit-border-radius: 30px;
+			border-radius: 30px;
+			overflow: hidden;
+			color: #08c;
+			text-decoration: none;
+			font-size: 16px;
+			background: inherit;
+		}
+		.translucent:hover {
+			-webkit-animation: onhover 1s ease;
+		}
+		@-webkit-keyframes onhover {
+			0% {
+				-webkit-transform: scale(1.1);
+			}
+			20% {
+				-webkit-transform: scale(.9);
+			}
+			40% {
+				-webkit-transform: scale(1.1);
+			}
+			60% {
+				-webkit-transform: scale(.9);
+			}
+			80% {
+				-webkit-transform: scale(1.1);
+			}
+		}
+		.translucent:before {
+			content: '';
+			position: absolute;
+			width: 110%;
+			height: 110%;
+			top: -5%;
+			bottom: -5%;
+			background: inherit;
+			-webkit-filter: url('#blur') saturate(2);
+			-moz-filter: url('#blur');
+			filter: url('#blur');
+		}
+		.translucent div {
+			background: rgba(235,235,235,.6);
+			text-align: center;
+			position: relative;
+		}
+		</style>
+		<!-- 你可能要修改以下js的链接 -->
+		<script src="js/jquery-2.1.1.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+	</head>
+	<body>
+		<a href="#" class="translucent">
+			<div>拖动我</div>
+		</a>
+
+		<svg>
+			<filter id="blur">
+				<feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+			</filter>
+		</svg>
+	</body>
+</html>
+<script>
+	$('.translucent').draggable();
+</script>
