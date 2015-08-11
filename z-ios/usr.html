@@ -57,42 +57,20 @@
 			-webkit-transform: rotate(360deg);
 		}
 	}
-	.letter-z {
-		fill:none;
-		stroke: #f5f5f5;
-		stroke-width:3;
-		/*设置转角顶点样式为圆形*/
-		stroke-linejoin: round;
-		stroke-miterlimit:20;
-		-webkit-animation: letter-z 7s infinite;
-		-moz-animation: letter-z 7s infinite;
-	}
-	@-webkit-keyframes letter-z {
-		0% {
-			stroke-dasharray:0 800;
-		}
-		50% {
-			stroke-dasharray:310 0;
-		}
-	}
-	@-moz-keyframes circle2 {
-		0% {
-			stroke-dasharray:0 800;
-		}
-		50% {
-			stroke-dasharray:310 0;
-		}
-	}
-</style>
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 17.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg x="0px" y="0px" width="230px" height="230px" viewBox="0 0 230 230">
-	<g class="circle-box"><circle class="circle-z loading" cx="117.351" cy="111.769" r="90"/></g>
 
+</style>
+<svg x="0px" y="0px" width="230px" height="230px" viewBox="0 0 230 230">
+	<defs>
+		<clipPath id="usrbox">
+			<circle cx="117.351" cy="111.769" r="90"/>
+		</clipPath>	
+	</defs>
+	<g class="circle-box"><circle class="circle-z" cx="117.351" cy="111.769" r="90"/></g>
+
+<g class="circle-box">
+	<circle class="circle-z" cx="115" cy="100" r="35"/>
+</g>
 <g>
-	<path class="letter-z" d="M74.124,56.135h88.043L77.258,163.23h84.283"/>
-	<!-- 解决火狐与Safari不兼容css3动画处理方案 -->
-	<animate attributeName="stroke-dasharray" begin="0s" dur="6s" values="0,600; 450,0" repeatCount="indefinite"></animate>
+	<circle class="circle-z" cx="115" cy="230" r="80" clip-path="url(#usrbox)"/>
 </g>
 </svg>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TweenMax</title>
+	<style>
+	#box { width: 100px; height: 100px; background: #f90}
+	</style>
+</head>
+<body>
+	<div class="box" id="box"></div>
+
+	<input type="number" value="0.4" step=".1">
+	<select name="" id="parent">
+		<option value="Linear">Linear</option>
+		<option value="Power0">Power0</option>
+		<option value="Power1">Power1</option>
+		<option value="Power2">Power2</option>
+		<option value="Power3">Power3</option>
+		<option value="Power4">Power4</option>
+		<option value="Quad">Quad</option>
+		<option value="Cubic">Cubic</option>
+		<option value="Quart">Quart</option>
+		<option value="Quint">Quint</option>
+		<option value="Strong">Strong</option>
+	</select>
+
+	<select name="" id="name">
+		<option value="easeIn">easeIn</option>
+		<option value="easeOut">easeOut</option>
+		<option value="easeInOut">easeInOut</option>
+	</select>
+	<p>获取到元素</p>
+	<button id="native">原生</button>
+</body>
+<script src="../lib/jquery/jquery-2.1.4.min.js"></script>
+<script src="greensockjs/src/uncompressed/TimelineMax.js"></script>
+<script src="greensockjs/src/uncompressed/TweenLite.js"></script>
+<script src="greensockjs/src/uncompressed/plugins/cssplugin.js"></script>
+<script>
+
+function back(speed, time) {
+	TweenLite.to(box, time, {
+		width: '100px',
+		height: '100px',
+		backgroundColor: '#f90',
+		delay: .4,
+		ease: speed
+	});
+}
+
+$('#native').click(function() {
+	// 手动获取元素
+	var box = document.getElementById('box');
+	var speed = $('#parent').val();
+	speed += '.'+$('#name').val();
+	var time = $('input[type="number"]').val();
+
+	console.log(speed);
+
+	TweenLite.to(box, time, {
+		width: '200px',
+		height: '150px',
+		backgroundColor: 'red',
+		onComplete: back,
+		onCompleteParams: [speed, time],
+		ease: speed
+	});
+
+	// back();
+});
+
+
+</script>
+</html>

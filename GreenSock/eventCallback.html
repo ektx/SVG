@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TweenMax</title>
+	<style>
+	#box { width: 100px; height: 100px; background: #090; position: absolute;}
+	</style>
+</head>
+<body>
+	<div class="box" id="box"></div>
+</body>
+<script src="greensockjs/src/uncompressed/TweenLite.js"></script>
+<script src="greensockjs/src/uncompressed/plugins/cssplugin.js"></script>
+<script>
+// 1. not use eventCallback
+// var animate = new TweenLite.to('#box', 1, {left:'50%', ease: Linear.easeNone, onComplete: back, onCompleteParams: ['2', '3']});
+
+// 2. use eventCallback
+var ani = new TweenLite.to('#box', 1, {left: '50%', ease: Power1.easeOut})
+ani.eventCallback("onComplete", back, ['2', '3']);
+
+// 3. 回调函数
+function back(time, delayTime) {
+	console.log(time+' - ' +delayTime)
+	TweenLite.to('#box', time, {left: 0, ease: Linear.easeNone, delay: delayTime});
+}
+
+</script>
+</html>
