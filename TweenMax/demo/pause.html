@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TweenMax</title>
+	<style>
+	#box { width: 100px; height: 100px; background: #090; position: absolute;}
+	</style>
+</head>
+<body>
+	<div class="box" id="box"></div>
+	<button id="s">stop</button>
+</body>
+<script src="../src/uncompressed/TweenLite.js"></script>
+<script src="../src/uncompressed/plugins/cssplugin.js"></script>
+<script>
+
+
+var animate = TweenLite.to('#box', 5, {left:'50%', ease: Linear.easeNone});
+
+document.getElementById('s').onclick = function() {
+	// 立刻停止
+	// animate.pause();
+
+	// 立刻停止(有闪动)
+	// animate.pause(true);
+
+	// 停止在1s时
+	animate.pause(1);
+
+	// [官]跳转到正好2秒后进入动画和暂停，但最初的移动过程中不抑制的事件：(测试与上无异:( )
+	// animate.pause(1, false);
+}
+
+</script>
+</html>

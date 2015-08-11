@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Div</title>
+	<style type="text/css">
+	body {
+		position: relative;
+	}
+	#box {
+		width: 200px;
+		height: 200px;
+		background-color: #f90;
+		position: absolute;
+	}
+	</style>
+</head>
+<body onload="init()">
+	<div id="box"></div>
+</body>
+<script type="text/javascript" src="../src/uncompressed/TweenMax.js"></script>
+<script type="text/javascript">
+function init() {
+	var b = document.getElementById('box');
+	var yc = window.innerHeight * 0.5 - 100;
+	var xc = window.innerWidth * 0.5 - 100;
+	b.style.top = yc + 'px';
+	b.style.left = -500 + 'px';
+
+	// TweenMax.to(b, 1.5, {css:{left: xc}, ease:Expo.easeOut});
+	// TweenMax.to(b, 1, {css:{scale:3, backgroundColor: '#0f0'}, ease: Expo.easeOut, delay: 1.2});
+	// TweenMax.to(b, 1, {css:{backgroundColor:'#f90', rotation: 180, scale: 1}, ease: Expo.easeOut, delay: 2});
+
+
+	var tl = new TimelineMax();
+	
+	tl.to(b, 1.5, {css:{left: xc}, ease:Expo.easeOut});
+	tl.to(b, 1, {css:{scale:3, backgroundColor: '#0f0'}, ease: Expo.easeOut, delay: -0.3});
+	tl.to(b, 1, {css:{backgroundColor:'#f90', rotation: 180, scale: 1}, ease: Expo.easeOut, delay: -0.3});
+	
+}
+</script>
+</html>

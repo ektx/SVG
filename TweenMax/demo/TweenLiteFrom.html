@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TweenMax</title>
+	<style>
+	#box,#box2 { width: 100px; height: 100px; background: #090; position: absolute;}
+	#box2 {top: 110px}
+	</style>
+</head>
+<body>
+	<div class="box" id="box"></div>
+	<div class="box" id="box2"></div>
+</body>
+<script src="../src/uncompressed/TweenLite.js"></script>
+<script src="../src/uncompressed/plugins/cssplugin.js"></script>
+<script>
+// 与 TweenLite.to 相反操作; 从指定情况处理到默认状态
+var ani = new TweenLite.from(['#box', '#box2'], 1, {left: '50%', ease: Power1.easeOut})
+
+</script>
+</html>

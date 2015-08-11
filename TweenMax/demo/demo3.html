@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Canvas</title>
+	<style type="text/css">
+	body {
+		position: relative;
+	}
+	#box {
+		width: 200px;
+		height: 200px;
+		background-color: #f90;
+		position: absolute;
+	}
+	</style>
+</head>
+<body onload="init()">
+	
+	<canvas id="canvas" width="800" height="600">
+		canvas is not supported.
+	</canvas>
+
+</body>
+<script type="text/javascript" src="../src/uncompressed/TweenMax.js"></script>
+<script type="text/javascript">
+var ctx, img;
+
+function init() {
+	ctx = document.getElementById('canvas').getContext('2d');
+
+	img = new Image();
+	img.src = 'kings.png';
+	img.xpos = 50;
+	img.ypos = 50;
+	img.onload = function() {
+		TweenLite.ticker.addEventListener('tick', loop);
+	};
+
+	// repeat: n 重复,n表示重复次数, -1表示无限
+	// yoyo: 动画是返回,ture为返回
+	TweenMax.to(img, 1, {xpos: 500, ypos: 400, repeat: -1, yoyo: true})
+}
+
+function loop() {
+	ctx.clearRect(0, 0, 800, 600);
+	ctx.drawImage(img, img.xpos, img.ypos);
+}
+</script>
+</html>

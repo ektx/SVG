@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TweenMax</title>
+	<style>
+	#box { width: 100px; height: 100px; background: #090; position: absolute;}
+	</style>
+</head>
+<body>
+	<div class="box" id="box"></div>
+</body>
+<script src="../src/uncompressed/TweenLite.js"></script>
+<script src="../src/uncompressed/TimelineLite.js"></script>
+<script src="../src/uncompressed/plugins/cssplugin.js"></script>
+<script>
+
+var tl = new TimelineLite();
+var animate = TweenLite.to('#box', 1, {left:'50%', ease: Linear.easeNone});
+
+// 延迟 .5s
+tl.add(animate, 0.5);
+console.log('预期结束时间:' + animate.endTime());
+
+// 时间压缩 5倍, 1/ 5
+animate.timeScale(5);
+console.log('动画时间:' + animate.endTime()) // 0.7 = 0.5 + 1/5
+
+</script>
+</html>

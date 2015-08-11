@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Img</title>
+</head>
+<body>
+	<img id="kings" src="kings.png">
+</body>
+<script type="text/javascript" src="../src/uncompressed/TweenMax.js"></script>
+<script type="text/javascript">
+	var k = document.getElementById('kings');
+
+	// 让图片3s内大小正负50(变小50然后恢复)
+	// TweenMax.to(k, 3, { width: "+=50", ease: Elastic.easeOut, onComplete:done});
+
+	// 让图片变成100宽
+	TweenMax.to(k, 2, { opacity: 0, ease: Elastic.easeOut, onComplete:done});
+
+	function done () {
+		console.log('Over!')
+	}
+</script>
+</html>
