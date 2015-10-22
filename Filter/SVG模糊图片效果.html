@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SVG Image Blur</title>
+	<style>
+	#container {
+		position: relative;
+	}
+	#svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	img {
+		max-width: 100%;
+		max-height: 100vh;
+		margin: 0 auto;
+		display: block;
+	}
+	</style>
+</head>
+<body>
+
+<div id="container">
+	<img src="donmi.jpg" alt="" />
+	<svg id="svg">
+		<filter id="svgFilter" width="100%" height="100%" x="-0%" y="-0%">
+			<fegaussianblur id="svgGaussBlur" in="SourceGraphic" stdDeviation="10"></fegaussianblur>
+			<feComponentTransfer>
+				<feFuncA type="discrete" tableValues="11" />
+			</feComponentTransfer>
+
+		</filter>
+		<image xlink:href="donmi.jpg" filter="url(#svgFilter)" width="100%" height="100%" x="0" y="0"></image>
+	</svg>
+</div>
+</body>
+</html>

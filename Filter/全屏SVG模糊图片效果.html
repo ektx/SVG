@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SVG Image Blur</title>
+	<style>
+	html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	#container {
+		width: 100%;
+		height: 100%;
+		background: url('donmi.jpg');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		-webkit-filter: url('#svgFilter');
+		filter: url('#svgFilter');
+		overflow: hidden;
+	}
+	#svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	#controls {
+		display: -webkit-box;
+		display: box;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 120px;
+		text-align: center;
+		background: rgba(255, 255, 255, 0.7);
+		-webkit-box-orient: block-axis;
+		box-orient: block-axis;
+		-webkit-box-pack: center;
+		box-pack: center;
+		z-index: 100;
+	}
+	button {
+		border: none;
+		border-radius: 5px;
+		background: orange;
+		padding: 10px;
+		-webkit-transition: background .25s ease-in-out;
+		transition: background .25s ease-in-out;
+	}
+	button:hover {
+		background: #cc8400;
+	}
+
+	</style>
+</head>
+<body>
+<div id="controls">
+	<button id="blur">Blur</button>
+	<button id="unblur">Unblur</button>
+	<input type="range" id="range" value="10" max="40">
+	<span id="rangeNumber">10</span>
+</div>
+<div id="container">
+	<svg id="svg">
+		<filter id="svgFilter" width="100%" height="100%" x="-0%" y="-0%">
+			<fegaussianblur id="svgGaussBlur" in="SourceGraphic" stdDeviation="10"></fegaussianblur>
+			<feComponentTransfer>
+				<feFuncA type="discrete" tableValues="11" />
+			</feComponentTransfer>
+		</filter>
+	</svg>
+</div>
+<script>
+	var range = document.getElementById('range');
+	var rNumber = document.getElementById('rangeNumber');
+	var fblur = document.getElementById('svgGaussBlur')
+
+	range.addEventListener('mousemove', function() {
+		rNumber.innerHTML = range.value;
+		fblur.setAttribute('stdDeviation', range.value)
+
+	})
+</script>
+</body>
+</html>
