@@ -1,0 +1,131 @@
+
+/*=== 返回顶部 ===*/
+.rightMenu{
+    width: 38px;
+    height: 86px;
+    position: fixed;
+    right: 20px;
+    bottom: 95px;
+}
+.rightMenu .toTop,
+.rightMenu .toFeedback {
+    width: 38px;
+    height: 38px;
+    background: url("../../img/rightMenu.png") no-repeat;
+    display: block;
+}
+.rightMenu .toFeedback{
+    background-position: 0 bottom;
+    margin-top: 10px;
+}
+
+
+/* 搜索功能 */
+.search-mod {
+    float: right;
+    width: 300px;
+    height: 38px;
+    font-size: 0;
+    box-sizing: border-box;
+    border: 1px solid #dadde6;
+}
+.search-mod label {
+    display: inline-block;
+    font-size: 14px;
+    width: 260px;
+    height: 100%;
+    vertical-align: top;
+}
+.search-mod input {
+    width: 100%;
+    padding: 8px 0 9px 5px;
+    font-size: 14px;
+    border: none;
+    background: none;
+}
+.search-mod button{
+    display: inline-block;
+    width: 38px;
+    height: 100%;
+    background: url("../../img/os/searchIcon.png") no-repeat center center;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* 固定头部用户信息 */
+.hder-User-mod {
+    position: relative;
+    overflow: hidden;
+    font-size: 0;
+    margin: 1px 40px 0 0;
+}
+.hder-User-mod a {
+    display: inline-block;
+    color: #717d98;
+    line-height: 36px;
+    font-size: 16px;
+    margin-left: 40px;
+    padding-left: 40px;
+    border-left: 1px solid #eee;
+}
+.hder-usr-ico {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+    border-radius: 100%;
+    overflow: hidden;
+    background-color: #eee;
+    vertical-align: top;
+}
+.hder-usr-ico img {
+    width: 100%;
+    height: 100%;
+}
+.topLogout:hover {
+    color: #c30;
+    -webkit-transition: color .3s ease;
+    -moz-transition: color .3s ease;
+    -o-transition: color .3s ease;
+    transition: color .3s ease;
+}
+
+/* 进度条原件 */
+.progress-cell > progress {
+    width: 100%;
+    height: 15px;
+	border: none;
+	background-color: #f5f5f5;
+}
+/* IE6-9 */
+.progress-cell > progress b {
+	display: block;
+	height: 100%;
+	background: #333;
+}
+.pkPro-top {
+    font-size: 0;
+}
+.pkPro-top span {
+    display: inline-block;
+    width: 50%;
+    font-size: 14px;
+}
+.pkPro-top span i {
+    font-size: 12px;
+    font-style: normal;
+
+}
+.pkPro-Tright {
+    text-align: right;
+}
+.progress-cell > progress::-moz-progress-bar {
+	background-color: #333;
+}
+.progress-cell > progress::-webkit-progress-bar {
+	background-color: #f5f5f5;
+}
+.progress-cell > progress::-webkit-progress-value {
+	background-color: #333;
+}

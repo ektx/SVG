@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+/*
+    cell beta v1
+    -------------------------------------
+    2016.7.13
+*/
+
+header {
+	display: flex;
+	border-bottom: 1px solid #eee;
+}
+header img {
+	width: 100px;
+	height: 50px;
+	margin: 15px 50px 15px 80px;
+}
+header form {
+	flex: 1 auto;
+	-webkit-box-flex: 1;
+	margin: 20px 0;
+}
+
+.header-search input {
+	width: 80%;
+	height: 36px;
+	padding: 0 5px;
+	font-size: 16px;
+	border: 1px solid #bbb;
+}

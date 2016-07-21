@@ -1,0 +1,30 @@
+<%- include('lib/os/parts/head', {
+title: '首页',
+links: [
+    'lib/os/css/demo.min.css'
+]} ) %>
+
+<body>
+	
+	<header>
+		<img src="lib/os/img/logo.png" alt="logo">
+		<form class="header-search" action="">
+			<input type="text">
+			<input type="reset">
+			<button type="submit">
+				<svg viewBox="0 0 34 34" fill="#f90" stroke="currentColor">
+					<ellipse stroke-width="3" cx="16" cy="15" rx="12" ry="12"></ellipse>
+					<path d="M26 26 l 8 8" stroke-width="3" stroke-linecap="square"></path>
+				</svg>
+			</button>
+
+		</form>
+	</header>
+
+	<%- include('lib/os/parts/scripts.ejs') %>
+	
+	<script>
+		$('body').append(marked('# hell world'))
+	</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title><%= title %> - Cell</title>
+	<link rel="stylesheet" href="lib/os/css/base.css">
+	
+	<%# 单个页面样式添加 %>
+    <% links.forEach(function(link) { %>
+	    <% if (link) { %>
+    <link rel="stylesheet" href="<%= link %>" />
+    	<% } %>
+    <% }) %>
+</head>
