@@ -8,5 +8,78 @@
 	<svg viewBox="0 0 300 10">
 		<line x1="0" y1="0" x2="300" y2="0" stroke="black" wtroke-width="10" stroke-dasharray="5" />
 	</svg>
+
+	<svg viewBox="0 0 300 10">
+		<defs>
+			<style>
+				line#es {
+					stroke: black;
+					stroke-width: 5;
+					stroke-dasharray: 5, 10, 5;
+				}
+			</style>
+		</defs>
+		<line id="es" x1="0" y1="0" x2="300" y2="0" />
+	</svg>
+
+	<svg viewBox="0 0 300 10">
+		<defs>
+			<style>
+				line#dashoffset {
+					stroke: black;
+					stroke-width: 5;
+					stroke-dasharray: 5, 10, 5;
+					stroke-dashoffset: 20;
+				}
+			</style>
+		</defs>
+		<line id="dashoffset" x1="0" y1="0" x2="300" y2="0" />
+	</svg>
+
+	<h2>Animating Strokes</h2>
+	<svg viewBox="0 0 300 10">
+		<defs>
+			<style>
+				line#loading {
+					stroke: hsl(260, 50%, 30%);
+					stroke-width: 5;
+					stroke-dasharray: 300;
+					stroke-dashoffset: 300;
+
+					animation: strokeani 2s alternate infinite;
+				}
+				@keyframes strokeani {
+					to {
+						stroke-dashoffset: 0;
+					}
+				}
+			</style>
+		</defs>
+		<line id="loading" x1="0" y1="0" x2="300" y2="0" />
+	</svg>
+
+
+	<h2>PS 选区效果</h2>
+	<svg viewBox="0 0 300 200">
+		<defs>
+			<style>
+				rect#ps {
+					fill: white;
+					stroke: hsl(260, 50%, 30%);
+					stroke-width: 5;
+					stroke-dasharray: 10;
+
+					animation: psSelect 400ms forwards infinite linear;
+				}
+				@keyframes psSelect {
+					to {
+						stroke-dashoffset: 20;
+					}
+				}
+			</style>
+		</defs>
+		<rect id="ps" x="0" y="0" width="300" height="200" />
+	</svg>
+
 </body>
 </html>
