@@ -3,23 +3,24 @@
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+  <style type="text/css">
+    circle {
+      transition: r 300ms;
+    }
+  </style>
   <script>
 
-    function doCircle(evt) 
-    {
-      var theCircle = evt.target;
-      var radius = theCircle.getAttribute("r");
+    function doCircle(evt) {
+      let theCircle = evt.target;
+      let radius = theCircle.getAttribute("r")
 
-      if (radius == 50) 
-      {
+      if (radius == 50) {
         radius = 75;
-      }
-      else 
-      {
+      } else {
         radius = 50;
       }
     
-      theCircle.setAttribute("r",radius);
+      theCircle.setAttribute("r", radius)
     }
 
   </script>
@@ -29,9 +30,15 @@
   <svg width="300px" height="300px">
     <text x="25" y="50" font-size="24">SVG Circle Element</text>
     <text x="25" y="275">Click the circle to change its size.</text>
-    <circle cx="125" cy="150" r="50" 
-            fill="pink" stroke="green" stroke-width="5"
-            onclick="doCircle(evt)" />
+    <circle 
+      cx="125" 
+      cy="150" 
+      r="50" 
+      fill="pink" 
+      stroke="green" 
+      stroke-width="5"
+      onclick="doCircle(evt)" 
+    />
   </svg>
 </body>
 
