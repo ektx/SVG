@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Loading</title>
+  <style>
+  body, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  .loading-box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 1px solid;
+    filter: url('#goo');
+    
+  }
+
+  .loading-box li {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    border-radius: 50%;
+    animation: run360 2s linear infinite;
+    list-style: none;
+    background-color: red;
+  }
+  .loading-box li:nth-child(1) {
+    animation-delay: 0s;
+    animation-duration: 4s;
+  }
+  .loading-box li:nth-child(2) {
+    /* background-color: green; */
+    animation-delay: -.5s;
+    animation-duration: 1s;
+  }
+  .loading-box li:nth-child(3) {
+    /* background-color: blue; */
+    animation-delay: -1s;
+  }
+  .loading-box li:nth-child(4) {
+    /* background-color: yellow; */
+    animation-delay: -1.5s;
+    animation-duration: 1.5s;
+  }
+
+  @keyframes run360 {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(100%, 0);
+    }
+    50% {
+      transform: translate(100%, 100%);
+    }
+    75% {
+      transform: translate(0, 100%);
+    }
+  }
+  </style>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur"></feGaussianBlur>
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -10" result="goo"></feColorMatrix>
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+      </filter>
+      <filter id="goo-no-comp">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="100" result="blur"></feGaussianBlur>
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"></feColorMatrix>
+      </filter>
+    </defs>
+  </svg>
+
+  <ul class="loading-box">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</body>
+</html>
