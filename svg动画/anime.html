@@ -1,84 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title></title>
-	<style>
-	body {
-		background: #333;
-	}
-	.green,
-	.red {
-		position: absolute;
-		top: 0rem;
-		left: 0rem;
-		width: 1rem;
-		height: 1rem;
-	}
-	.green {
-		background-color: #31FFA6;
-	}
-	.red {
-		background-color: red
-	}
-	</style>
-</head>
-<body>
-	<section>
-  <article>
-    <div id="motionPath">
-	  <div class="motion-path">
-	    <div class="green"></div>
-	    <div class="red"></div>
-	    <svg width="256" height="112" viewBox="0 0 256 112">
-	        <path fill="#f90" stroke="currentColor" stroke-width="1" d="M8,56 C8,33.90861 25.90861,16 48,16 C70.09139,16 88,33.90861 88,56 C88,78.09139 105.90861,92 128,92 C150.09139,92 160,72 160,56 C160,40 148,24 128,24 C108,24 96,40 96,56 C96,72 105.90861,92 128,92 C154,93 168,78 168,56 C168,33.90861 185.90861,16 208,16 C230.09139,16 248,33.90861 248,56 C248,78.09139 230.09139,96 208,96 L48,96 C25.90861,96 8,78.09139 8,56 Z"></path>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      body {
+        background: #333;
+      }
+      .green,
+      .red {
+        position: absolute;
+        top: 0rem;
+        left: 0rem;
+        width: 1rem;
+        height: 1rem;
+      }
+      .green {
+        background-color: #31ffa6;
+      }
+      .red {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <article>
+        <div id="motionPath">
+          <div class="motion-path">
+            <div class="green"></div>
+            <div class="red"></div>
+            <svg width="256" height="112" viewBox="0 0 256 112">
+              <path
+                fill="#f90"
+                stroke="currentColor"
+                stroke-width="1"
+                d="M8,56 C8,33.90861 25.90861,16 48,16 C70.09139,16 88,33.90861 88,56 C88,78.09139 105.90861,92 128,92 C150.09139,92 160,72 160,56 C160,40 148,24 128,24 C108,24 96,40 96,56 C96,72 105.90861,92 128,92 C154,93 168,78 168,56 C168,33.90861 185.90861,16 208,16 C230.09139,16 248,33.90861 248,56 C248,78.09139 230.09139,96 208,96 L48,96 C25.90861,96 8,78.09139 8,56 Z"
+              ></path>
 
-	        <path id="line" stroke="#69f" d="M0 0 L100 100"></path>
-	      </svg> 
-	    </div>
-	</div>
-  </article>
-  <footer>
-    <span>Made with</span> <a href="http://anime-js.com">anime.js</a>
-  </footer>
-</section>
-	
-	<script src="../js/anime.js"></script>
-	<script>
-	// IE cannot apply CSS transforms on SVG elements. (See https://connect.microsoft.com/IE/feedback/details/811744/ie11-bug-with-implementation-of-css-transforms-in-svg)
+              <path id="line" stroke="#69f" d="M0 0 L100 100"></path>
+            </svg>
+          </div>
+        </div>
+      </article>
+      <footer>
+        <span>Made with</span> <a href="http://anime-js.com">anime.js</a>
+      </footer>
+    </section>
 
-	var path = anime.path('#motionPath path');
-	console.log(path)
+    <script src="../js/anime.min.js"></script>
+    <script>
+      // IE cannot apply CSS transforms on SVG elements. (See https://connect.microsoft.com/IE/feedback/details/811744/ie11-bug-with-implementation-of-css-transforms-in-svg)
 
-	var motionPath = anime({
-	  targets: '.green',
-	  translateX: path('x'),
-	  translateY: path('y'),
-	  rotate: path('angle'),
-	  easing: 'linear',
-	  duration: 10000,
-	  loop: true
-	});
+      var path = anime.path("#motionPath path");
+      console.log(path);
 
-	var Lpath = anime.path('#motionPath #line');
-	var motionPath = anime({
-	  targets: '.red',
-	  translateX: Lpath('x'),
-	  translateY: Lpath('y'),
-	  rotate: Lpath('angle'),
-	  easing: 'linear',
-	  duration: 10000,
-	  loop: true
-	});
+      var motionPath = anime({
+        targets: ".green",
+        translateX: path("x"),
+        translateY: path("y"),
+        rotate: path("angle"),
+        easing: "linear",
+        duration: 10000,
+        loop: true,
+      });
 
-	anime({
-		targets: 'path',
-		opacity: 0,
-		duration: 6000,
-		loop: true,
-		direction: 'alternate',
-		easing: 'easeInOutExpo'
-	});
-	</script>
-</body>
+      // var Lpath = anime.path("#motionPath #line");
+      // var motionPath = anime({
+      //   targets: ".red",
+      //   translateX: Lpath("x"),
+      //   translateY: Lpath("y"),
+      //   rotate: Lpath("angle"),
+      //   easing: "linear",
+      //   duration: 10000,
+      //   loop: true,
+      // });
+
+      // anime({
+      //   targets: "path",
+      //   opacity: 0,
+      //   duration: 6000,
+      //   loop: true,
+      //   direction: "alternate",
+      //   easing: "easeInOutExpo",
+      // });
+    </script>
+  </body>
 </html>
