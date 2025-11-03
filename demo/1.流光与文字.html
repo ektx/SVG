@@ -27,7 +27,7 @@
         id="track"
         d="M843.463 1.3315L245.316 5.47507L0.633077 4.69725"
         stroke="url(#output_gradient)"
-        stroke-width="1.2"
+        stroke-width="3"
       ></path>
 
       <!-- html -->
@@ -165,69 +165,7 @@
           </defs>
         </g>
       </g>
-      <g data-v-5cbf1504="">
-        <g data-v-5cbf1504="" data-v-89efd6b1="">
-          <path
-            d="M843.463 1.3315L245.316 5.47507L0.633077 4.69725"
-            stroke="url(#glow_gradient_0.jzpp1v2erki)"
-            stroke-width="1.2"
-            mask="url(#glow_mask_0.jzpp1v2erki)"
-            class="svg-path"
-            data-v-89efd6b1=""
-          ></path>
-          <circle
-            cx="171.0850830078125"
-            cy="5.239116191864014"
-            r="0.007812"
-            fill="#d499ff"
-            class="circle-dot"
-            style="--dot-color: #d499ff"
-            data-v-89efd6b1=""
-          ></circle>
-          <text
-            x="171.0850830078125"
-            y="20.239116191864014"
-            fill="#a3a3a3"
-            font-family="Inter, sans-serif"
-            font-size="11px"
-            font-style="normal"
-            font-weight="400"
-            text-anchor="middle"
-            alignment-baseline="hanging"
-            class="label"
-            data-v-89efd6b1=""
-          >
-            .js
-          </text>
-          <defs data-v-89efd6b1="">
-            <mask id="glow_mask_0.jzpp1v2erki" data-v-89efd6b1="">
-              <path
-                d="M843.463 1.3315L245.316 5.47507L0.633077 4.69725"
-                fill="black"
-                data-v-89efd6b1=""
-              ></path>
-              <circle
-                cx="171.0850830078125"
-                cy="5.239116191864014"
-                r="0.13497"
-                fill="white"
-                data-v-89efd6b1=""
-              ></circle>
-            </mask>
-            <radialGradient
-              id="glow_gradient_0.jzpp1v2erki"
-              cx="171.0850830078125"
-              cy="5.239116191864014"
-              r="0.13497"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0%" stop-color="#BD34FE" stop-opacity="1"></stop>
-              <stop offset="100%" stop-color="#BD34FE" stop-opacity="0"></stop>
-            </radialGradient>
-          </defs>
-        </g>
-      </g>
-      <!--]-->
+
       <defs>
         <linearGradient id="output_gradient" gradientUnits="userSpaceOnUse">
           <stop offset="0.1" stop-color="#E0C8FF" stop-opacity="0"></stop>
@@ -241,7 +179,7 @@
       <path
         id="myPath"
         d="M100,100 C200,50 300,200 400,100"
-        stroke="black"
+        stroke="white"
         fill="none"
       />
       <circle id="animatedCircle" r="10" fill="blue" />
@@ -252,21 +190,21 @@
     const path = anime.path("#track");
     console.log(path("x"));
 
-    anime({
-      targets: ["#html-el"],
-      r: [
-        { value: 3.5, duration: 1000, delay: 500 },
-        { value: 0, duration: 1000, delay: 500 },
-        { value: 0, duration: 1000, delay: 500 },
-      ],
-      cx: [
-        { value: 300, duration: 1000, delay: 500 },
-        { value: 700, duration: 1000, delay: 500 },
-        { value: 0, duration: 1000, delay: 500 },
-      ],
-      easing: "linear",
-      loop: true,
-    });
+    // anime({
+    //   targets: ["#html-el"],
+    //   r: [
+    //     { value: 3.5, duration: 1000, delay: 500 },
+    //     { value: 0, duration: 1000, delay: 500 },
+    //     { value: 0, duration: 1000, delay: 500 },
+    //   ],
+    //   cx: [
+    //     { value: 300, duration: 1000, delay: 500 },
+    //     { value: 700, duration: 1000, delay: 500 },
+    //     { value: 0, duration: 1000, delay: 500 },
+    //   ],
+    //   easing: "linear",
+    //   loop: true,
+    // });
 
     anime({
       targets: ["#one-defs-mask circle", "#one-stroke"],
@@ -285,19 +223,19 @@
       loop: true,
     });
 
-    // const path = document.querySelector("#myPath");
-    // const path2 = anime.path(path);
-    // const circle = document.querySelector("#animatedCircle");
+    const pathEl = document.querySelector("#myPath");
+    const path2 = anime.path(pathEl);
+    const circle = document.querySelector("#animatedCircle");
 
-    // const pathLength = path.getTotalLength();
+    const pathLength = pathEl.getTotalLength();
 
-    // anime({
-    //   targets: circle,
-    //   translateX: path2("x"),
-    //   translateY: path2("y"),
-    //   easing: "linear",
-    //   duration: 3000,
-    //   loop: true,
-    // });
+    anime({
+      targets: circle,
+      translateX: path2("x"),
+      translateY: path2("y"),
+      easing: "linear",
+      duration: 3000,
+      loop: true,
+    });
   </script>
 </html>
